@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevWepAPI", "DevWepAPI\DevWepAPI.csproj", "{D4BAE2C2-E71F-4EF7-A7CC-3343396F781D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Factory", "Data.Factory\Data.Factory.csproj", "{DCE0B1C0-5791-4AA5-8958-D1B9B9FC5D64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_Local|Any CPU = Debug_Local|Any CPU
+		Debug_Public|Any CPU = Debug_Public|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4BAE2C2-E71F-4EF7-A7CC-3343396F781D}.Debug_Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4BAE2C2-E71F-4EF7-A7CC-3343396F781D}.Debug_Local|Any CPU.Build.0 = Debug|Any CPU
+		{D4BAE2C2-E71F-4EF7-A7CC-3343396F781D}.Debug_Public|Any CPU.ActiveCfg = Debug_Public|Any CPU
+		{D4BAE2C2-E71F-4EF7-A7CC-3343396F781D}.Debug_Public|Any CPU.Build.0 = Debug_Public|Any CPU
+		{D4BAE2C2-E71F-4EF7-A7CC-3343396F781D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4BAE2C2-E71F-4EF7-A7CC-3343396F781D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE0B1C0-5791-4AA5-8958-D1B9B9FC5D64}.Debug_Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE0B1C0-5791-4AA5-8958-D1B9B9FC5D64}.Debug_Local|Any CPU.Build.0 = Debug|Any CPU
+		{DCE0B1C0-5791-4AA5-8958-D1B9B9FC5D64}.Debug_Public|Any CPU.ActiveCfg = Debug_Public|Any CPU
+		{DCE0B1C0-5791-4AA5-8958-D1B9B9FC5D64}.Debug_Public|Any CPU.Build.0 = Debug_Public|Any CPU
+		{DCE0B1C0-5791-4AA5-8958-D1B9B9FC5D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE0B1C0-5791-4AA5-8958-D1B9B9FC5D64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C88694C-024F-4FB3-94C7-238901E4E4C1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game</title>
+        <style>
+            #canvasDiv {
+                text-align: center;
+            }
+        </style>
+        <script>
+            // variables
+            var canvas;
+            var ctx;
+
+            var score = 0;
+            var lives = 3;
+            var gameover = false;
+
+            var playerY = 30;
+            var playerX = 200;
+            const PLAYER_WIDTH = 50;
+            const ENEMY_WIDTH = 50;
+            
+            var enemies = [];
+            var blastList = [];
+
+            function Enemy(X, Y) {
+                this.enemyX = X;
+                this.enemyY = Y; 
+            }
+            function Blast(X, Y) {
+                this.blastX = X;
+                this.blastY = Y;
+            }
+
+            function calculateMousePos(evt) {
+                var rect = canvas.getBoundingClientRect();
+                var root = document.documentElement;
+                var mouseX = evt.clientX - rect.left - root.scrollLeft;
+                var mouseY = evt.clientY - rect.top - root.scrollTop;
+                return {
+                    x:mouseX,
+                    y:mouseY
+                };
+            }
+            
+            function mouseClickFire(evt) {
+                if (gameover)
+                {
+                    lives = 3;
+                    gameover = false; 
+                    score = 0;
+                    return;
+                }
+                let blast = new Blast(playerX + PLAYER_WIDTH/2, playerY - PLAYER_WIDTH/2);
+                blastList.push(blast);
+            }
+
+            window.addEventListener("load", init, false);
+
+            function init() {
+                canvas = document.getElementById("myCanvas");
+                ctx = canvas.getContext("2d");
+                ctx.fillStyle = "black";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                //enemyX = canvas.width / 2;
+                //enemyY = 50; 
+                playerX = canvas.width / 2;
+                playerY = canvas.height - 100;
+
+                updateFunction();
+
+
+                var fps = 30;
+                setInterval(function() {
+                    updateFunction();
+                }, 1000/ fps);
+
+                var frequency = 2000;
+                var enemySpeed = 10;
+                setInterval(function() {
+                    var enemy = new Enemy(Math.random() * Math.floor(canvas.width - (ENEMY_WIDTH*2)), 0);
+                    enemies.push(enemy);
+                    // console.log("push");
+                }, frequency);
+
+                canvas.addEventListener('mousemove', function(evt) {
+                    var mousePos = calculateMousePos(evt);
+                    playerX = mousePos.x - PLAYER_WIDTH/2;
+                });
+                canvas.addEventListener('mousedown', mouseClickFire);
+            }
+
+            function updateFunction() {
+                //console.log("Update");
+                if (gameover)
+                {
+                    ctx.fillStyle = "black";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = "white";
+                    ctx.fillText("Game Over!", canvas.width/2 - 100, 100);
+                    ctx.fillText("Score: " + score, canvas.width/2 - 100, 300);
+                    return;
+                }
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'white';
+                ctx.fillRect(playerX, playerY, PLAYER_WIDTH, PLAYER_WIDTH);
+                
+                ctx.font = "20pt Arial";
+                ctx.fillText("Score: " + score, canvas.width - 150, 50);
+                ctx.fillText("Lives: " + lives, 50, 50);
+
+                for (var i = 0; i < enemies.length; i++)
+                {
+                    if (enemies[0].enemyY >= canvas.height)
+                    {
+                        enemies.shift();
+                        // console.log("shift");
+                        continue;
+                    }
+
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(enemies[i].enemyX, enemies[i].enemyY, ENEMY_WIDTH, ENEMY_WIDTH);
+                    
+                    if ((enemies[i].enemyY <= playerY + PLAYER_WIDTH/2 && enemies[i].enemyY  >= playerY - PLAYER_WIDTH) &&
+                            (playerX >= enemies[i].enemyX && playerX <= enemies[i].enemyX + PLAYER_WIDTH))
+                    {
+                        console.log("Hit");
+                        lives--;
+                        enemies[i].enemyY = canvas.height + 5;
+                        if (lives <= 0)
+                            gameover = true;
+                    }
+
+                    enemies[i].enemyY += 5;                       
+                }
+
+
+                for (var i = 0; i < blastList.length; i++)
+                {
+                    if (blastList[0].blastY < 0)
+                    {
+                        blastList.shift();
+                        continue;
+                    }
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(blastList[i].blastX, blastList[i].blastY, 5, 10);
+                    blastList[i].blastY -= 5;
+
+                    for (var j = 0; j < enemies.length; j++)
+                    {
+                        if ((blastList[i].blastY >= enemies[j].enemyY && blastList[i].blastY <= enemies[j].enemyY + PLAYER_WIDTH) &&
+                            (blastList[i].blastX >= enemies[j].enemyX && blastList[i].blastX <= enemies[j].enemyX + PLAYER_WIDTH))
+                        {
+                            enemies[j].enemyY = canvas.height + 5;
+                            blastList[i].blastY = -50;
+                            score += 10;
+                        }
+                            
+                    }
+   
+                    
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="canvasDiv">
+            <canvas id="myCanvas" width="800" height="600"></canvas>
+        </div>
+    </body>
+</html>
