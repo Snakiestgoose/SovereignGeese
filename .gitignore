@@ -1,7 +1,5 @@
 # Config Files #
 ###################
-\DevVS\Data.Factory\App.config
-\DevVS\DevWepAPI\appsettings.json
-\DevVS\DevWepAPI\appsettings.Release.json
-\DevVS\DevWepAPI\appsettings.Debug_Public.json
-\DevVS\DevWepAPI\appsettings.Debug_Local.json
+DevVS/Data.Factory/*.config
+DevVS/DevWepAPI/*.json
+DevVS/.vs/
