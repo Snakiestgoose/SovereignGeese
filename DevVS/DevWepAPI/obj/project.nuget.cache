@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yGA0wm5xY+/0V4Anr4y3ytTvPV8eS/QXCTXOYf9SfyLuQzQwdCyXCz84bvOooaRiDXENVnqaotoArvDDD17IMg==",
+  "dgSpecHash": "SZ5zHJ1c/urM4adr2kzqI9M4YjUROJaqL1V9XJKIaMz1/11E4UTZuUCTdASnsbhclw9VIGPdcCOC+ljKNggGbA==",
   "success": true,
-  "projectFilePath": "C:\\dev\\SovereignGeese\\DevVS\\DevWepAPI\\DevWepAPI.csproj",
+  "projectFilePath": "C:\\dev\\SovereignGeese\\DevVS\\DevWepAPI\\DevWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aaron\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Aaron\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",

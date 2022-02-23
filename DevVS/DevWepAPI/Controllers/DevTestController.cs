@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Data.Factory.Dev;
 
-namespace DevWepAPI.Controllers
+namespace DevWebAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -14,10 +14,19 @@ namespace DevWepAPI.Controllers
             devFactory = new DevFactory();
         }
 
-        [HttpGet(Name = "GetDevTest")]
-        public bool Get()
+        [HttpGet]
+        [Route("DBConnectionTest")]
+        public bool DBConnectionTest()
         {
-            return devFactory.GetDevUserId() == 1;
+            bool result = devFactory.GetDevUserId() == 1;
+            return result;
+        }
+
+        [HttpGet]
+        [Route("MathAdd/{a}/{b}")]
+        public int MathAdd(int a, int b)
+        {
+            return a + b;
         }
     }
 }

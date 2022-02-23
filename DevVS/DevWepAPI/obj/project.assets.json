@@ -1166,9 +1166,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\SovereignGeese\\DevVS\\DevWepAPI\\DevWepAPI.csproj",
-      "projectName": "DevWepAPI",
-      "projectPath": "C:\\dev\\SovereignGeese\\DevVS\\DevWepAPI\\DevWepAPI.csproj",
+      "projectUniqueName": "C:\\dev\\SovereignGeese\\DevVS\\DevWepAPI\\DevWebAPI.csproj",
+      "projectName": "DevWebAPI",
+      "projectPath": "C:\\dev\\SovereignGeese\\DevVS\\DevWepAPI\\DevWebAPI.csproj",
       "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
       "outputPath": "C:\\dev\\SovereignGeese\\DevVS\\DevWepAPI\\obj\\",
       "projectStyle": "PackageReference",

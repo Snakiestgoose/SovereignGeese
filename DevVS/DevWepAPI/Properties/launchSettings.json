@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "DevWepAPI": {
+    "DevWebAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
