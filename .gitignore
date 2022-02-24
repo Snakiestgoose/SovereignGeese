@@ -3,3 +3,4 @@
 DevVS/Data.Factory/*.config
 DevVS/DevWepAPI/*.json
 DevVS/.vs/
+DevVS/**/node_modules/
